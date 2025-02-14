@@ -8,6 +8,7 @@ import (
 )
 
 // Hostname retrieves and prints host name
+//
 // Exits with non-zero error code should it have issues retrieving it
 func Hostname() {
 	hostname, err := os.Hostname()
