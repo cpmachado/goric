@@ -12,13 +12,18 @@ Initial development
 
 Implements:
 - Task 1: Get Host name
+- Task 2: Get IP from a given host
 
 ## Usage
 
 ```text
-goric is a WIP clone of 'ric', currently prints host name
-Usage of goric:
+goric is a WIP clone of 'ric'
+Usage: ./goric [OPTIONS] [HOSTNAME]
+  -n	Task 1: hostname
   -v	Display version and exit
+  -w	Task 2: nslook
+Default values:
+- HOSTNAME: localhost
 ```
 
 

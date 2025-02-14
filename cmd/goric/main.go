@@ -13,7 +13,7 @@ import (
 	"go.cpmachado.pt/goric"
 )
 
-var Version = "0.1.1"
+var Version = "0.2.0"
 
 func main() {
 	var host string = "localhost"
@@ -55,6 +55,7 @@ func displayUsage() {
 	prog := os.Args[0]
 	fmt.Fprintf(flag.CommandLine.Output(),
 		"%s is a WIP clone of 'ric', currently prints hostname\n", prog)
-	fmt.Fprintf(flag.CommandLine.Output(), "Usage of %s:\n", prog)
+	fmt.Fprintf(flag.CommandLine.Output(), "Usage: %s [OPTIONS] [HOSTNAME]\n", prog)
 	flag.PrintDefaults()
+	fmt.Fprintln(flag.CommandLine.Output(), "Default values:\n- HOSTNAME: localhost")
 }
