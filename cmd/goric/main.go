@@ -1,3 +1,7 @@
+/*
+Goric is a simple network toolkit command similar to nc.
+It is a clone of "ric" https://github.com/cpmachado/ric
+*/
 package main
 
 import (
