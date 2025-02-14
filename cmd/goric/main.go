@@ -7,33 +7,26 @@ package main
 import (
 	"flag"
 	"fmt"
-	"log/slog"
 	"os"
 
 	"go.cpmachado.pt/goric"
 )
 
-var Version = "0.2.0"
+var Version = "0.5.0"
 
 func main() {
 	var host string = "localhost"
-	var v, n, w bool
+	var port int = 1337
+	var v, n, w, u bool
 
 	flag.Usage = displayUsage
 	flag.BoolVar(&v, "v", false, "Display version and exit")
 	flag.BoolVar(&n, "n", false, "Task 1: hostname")
 	flag.BoolVar(&w, "w", false, "Task 2: nslook")
+	flag.BoolVar(&u, "u", false, "Task 3,4,5: udp client to contact UDP echo server")
+	flag.IntVar(&port, "p", port, "PORT")
+	flag.StringVar(&host, "d", host, "HOSTNAME")
 	flag.Parse()
-
-	switch flag.NArg() {
-	case 0:
-	case 1:
-		host = flag.Arg(0)
-	default:
-		err := fmt.Errorf("goric only accepts 1 argument at most")
-		slog.Error("Init", slog.Any("error", err))
-		os.Exit(1)
-	}
 
 	switch {
 	case v:
@@ -42,6 +35,8 @@ func main() {
 		goric.Hostname()
 	case w:
 		goric.Nslook(host)
+	case u:
+		goric.UDPClient(host, port)
 	default:
 		flag.Usage()
 	}
@@ -54,8 +49,7 @@ func displayVersion() {
 func displayUsage() {
 	prog := os.Args[0]
 	fmt.Fprintf(flag.CommandLine.Output(),
-		"%s is a WIP clone of 'ric', currently prints hostname\n", prog)
-	fmt.Fprintf(flag.CommandLine.Output(), "Usage: %s [OPTIONS] [HOSTNAME]\n", prog)
+		"%s is a WIP clone of 'ric'\n", prog)
+	fmt.Fprintf(flag.CommandLine.Output(), "Usage: %s [OPTIONS]\n", prog)
 	flag.PrintDefaults()
-	fmt.Fprintln(flag.CommandLine.Output(), "Default values:\n- HOSTNAME: localhost")
 }
