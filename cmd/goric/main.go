@@ -4,6 +4,8 @@ import (
 	"flag"
 	"fmt"
 	"os"
+
+	"go.cpmachado.pt/goric"
 )
 
 var Version = "0.1.0"
@@ -22,7 +24,7 @@ func init() {
 }
 
 func main() {
-	Hostname()
+	goric.Hostname()
 }
 
 func displayVersion() {
