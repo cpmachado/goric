@@ -6,6 +6,8 @@ import (
 	"os"
 )
 
+// Hostname retrieves and prints host name
+// Exits it has issues retrieving it
 func Hostname() {
 	hostname, err := os.Hostname()
 	if err != nil {
