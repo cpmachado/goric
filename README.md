@@ -14,6 +14,7 @@ Implements:
 - Task 1: Get Host name
 - Task 2: Get IP from a given host
 - Task 3, 4, 5: Simple UDP client that sends "Hello!\n", and expects reply
+- Task 6, 7: Simple TCP client that sends "Hello!\n", and expects reply
 
 ## Usage
 
@@ -22,12 +23,13 @@ goric is a WIP clone of 'ric'
 Usage: goric [OPTIONS]
   -d string
     	HOSTNAME (default "localhost")
-  -n	Task 1: hostname
+  -n	Task 1:       hostname
   -p int
     	PORT (default 1337)
-  -u	Task 3,4,5: udp client to contact UDP echo server
+  -t	Task 6, 7:    tcp client to contact TCP echo server
+  -u	Task 3, 4, 5: udp client to contact UDP echo server
   -v	Display version and exit
-  -w	Task 2: nslook
+  -w	Task 2:       nslook
 ```
 
 
