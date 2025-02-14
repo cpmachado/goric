@@ -1,3 +1,7 @@
+/*
+Goric is a simple network toolkit command similar to nc.
+It is a clone of "ric" https://github.com/cpmachado/ric
+*/
 package main
 
 import (
@@ -5,7 +9,7 @@ import (
 	"fmt"
 	"os"
 
-	"go.cpmachado.pt/goric/ric"
+	"go.cpmachado.pt/goric"
 )
 
 var Version = "0.1.0"
@@ -24,7 +28,7 @@ func init() {
 }
 
 func main() {
-	ric.Hostname()
+	goric.Hostname()
 }
 
 func displayVersion() {

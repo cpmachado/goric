@@ -11,7 +11,7 @@ goric is an implementation of [ric](https://github.com/cpmachado/ric) in go
 Initial development
 
 Implements:
-- Step 1: Get Host name
+- Task 1: Get Host name
 
 ## Usage
 
