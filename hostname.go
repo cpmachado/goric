@@ -1,3 +1,4 @@
+// Package goric contains the implementations of each task
 package goric
 
 import (
@@ -7,7 +8,7 @@ import (
 )
 
 // Hostname retrieves and prints host name
-// Exits it has issues retrieving it
+// Exits with non-zero error code should it have issues retrieving it
 func Hostname() {
 	hostname, err := os.Hostname()
 	if err != nil {
