@@ -1,4 +1,4 @@
-package ric
+package main
 
 import (
 	"fmt"

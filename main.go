@@ -4,8 +4,6 @@ import (
 	"flag"
 	"fmt"
 	"os"
-
-	"go.cpmachado.pt/goric/ric"
 )
 
 var Version = "0.1.0"
@@ -24,7 +22,7 @@ func init() {
 }
 
 func main() {
-	ric.Hostname()
+	Hostname()
 }
 
 func displayVersion() {
