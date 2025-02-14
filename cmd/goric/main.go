@@ -7,6 +7,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log/slog"
 	"os"
 
 	"go.cpmachado.pt/goric"
@@ -25,10 +26,21 @@ func init() {
 		displayVersion()
 		os.Exit(0)
 	}
+	if flag.NArg() > 1 {
+		err := fmt.Errorf("goric only accepts 1 argument at most")
+		slog.Error("Init", slog.Any("error", err))
+		os.Exit(1)
+	}
 }
 
 func main() {
+	var dest string
+
 	goric.Hostname()
+	if flag.NArg() == 1 {
+		dest = flag.Arg(0)
+		goric.Nslook(dest)
+	}
 }
 
 func displayVersion() {
