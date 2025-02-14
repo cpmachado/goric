@@ -7,6 +7,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log/slog"
 	"os"
 
 	"go.cpmachado.pt/goric"
@@ -14,21 +15,36 @@ import (
 
 var Version = "0.1.1"
 
-func init() {
-	var v bool
+func main() {
+	var host string = "localhost"
+	var v, n, w bool
 
 	flag.Usage = displayUsage
 	flag.BoolVar(&v, "v", false, "Display version and exit")
+	flag.BoolVar(&n, "n", false, "Task 1: hostname")
+	flag.BoolVar(&w, "w", false, "Task 2: nslook")
 	flag.Parse()
 
-	if v {
-		displayVersion()
-		os.Exit(0)
+	switch flag.NArg() {
+	case 0:
+	case 1:
+		host = flag.Arg(0)
+	default:
+		err := fmt.Errorf("goric only accepts 1 argument at most")
+		slog.Error("Init", slog.Any("error", err))
+		os.Exit(1)
 	}
-}
 
-func main() {
-	goric.Hostname()
+	switch {
+	case v:
+		displayVersion()
+	case n:
+		goric.Hostname()
+	case w:
+		goric.Nslook(host)
+	default:
+		flag.Usage()
+	}
 }
 
 func displayVersion() {
