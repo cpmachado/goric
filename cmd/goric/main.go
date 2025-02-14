@@ -8,11 +8,27 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"os/signal"
+	"syscall"
 
 	"go.cpmachado.pt/goric"
 )
 
-var Version = "0.7.0"
+var Version = "0.8.0"
+
+func init() {
+	signalChannel := make(chan os.Signal, 1)
+	signal.Notify(signalChannel, syscall.SIGPIPE)
+	go func() {
+		for {
+			sig := <-signalChannel
+			switch sig {
+			case syscall.SIGPIPE: // Ignore SIGPIPE by doing nothing
+			default:
+			}
+		}
+	}()
+}
 
 func main() {
 	var host string = "localhost"

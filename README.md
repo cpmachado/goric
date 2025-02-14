@@ -15,6 +15,7 @@ Implements:
 - Task 2: Get IP from a given host
 - Task 3, 4, 5: Simple UDP client that sends "Hello!\n", and expects reply
 - Task 6, 7: Simple TCP client that sends "Hello!\n", and expects reply
+- Task 8: Ignoring SIGPIPE signal
 
 ## Usage
 
