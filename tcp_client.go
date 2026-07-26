@@ -12,7 +12,7 @@ import (
 // expects it to be an echo server that replies with something.
 func TCPClient(host string, port int) {
 	msg := []byte("Hello!\n")
-	dest := fmt.Sprintf("%s:%d", host, port)
+	dest := net.JoinHostPort(host, fmt.Sprintf("%d", port))
 
 	conn, err := net.Dial("tcp", dest)
 	if err != nil {
