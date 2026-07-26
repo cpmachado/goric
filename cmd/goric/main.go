@@ -12,6 +12,8 @@ import (
 	"syscall"
 
 	"go.cpmachado.pt/goric"
+	"go.cpmachado.pt/goric/tcp"
+	"go.cpmachado.pt/goric/udp"
 )
 
 var Version = "0.8.0"
@@ -53,9 +55,9 @@ func main() {
 	case w:
 		goric.Nslook(host)
 	case u:
-		goric.UDPClient(host, port)
+		udp.UDPClient(host, port)
 	case t:
-		goric.TCPClient(host, port)
+		tcp.TCPClient(host, port)
 	default:
 		flag.Usage()
 	}

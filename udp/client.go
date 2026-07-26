@@ -1,4 +1,4 @@
-package goric
+package udp
 
 import (
 	"bufio"
